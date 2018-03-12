@@ -1,0 +1,16 @@
+---
+- name: Disable pi passwd
+  become: true
+  user:
+    name: pi
+    password: '*'
+
+- name: Disable SSH Password Login
+  become: true
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^PasswordAuthentication"
+    line: "PasswordAuthentication no"
+    state: present
+  notify: Reload ssh
+

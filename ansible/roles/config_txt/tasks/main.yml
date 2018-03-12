@@ -1,0 +1,30 @@
+---
+- name: Disable default audio in config.txt (1/2)
+  become: true
+  lineinfile:
+    path: /boot/config.txt
+    line: "dtparam=audio=on"
+    state: absent
+  notify:
+    - Reboot
+    - RebootWait
+
+- name: Disable default audio in config.txt (2/2)
+  become: true
+  lineinfile:
+    path: /boot/config.txt
+    line: "dtparam=audio=off"
+    state: present
+  notify:
+    - Reboot
+    - RebootWait
+
+- name: Enable justboom-dac in config.txt
+  become: true
+  lineinfile:
+    path: /boot/config.txt
+    line: "dtoverlay=justboom-dac"
+    state: present
+  notify:
+    - Reboot
+    - RebootWait

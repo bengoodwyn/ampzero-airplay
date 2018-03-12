@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+    - ping
+    - secure
+    - update
+    - node-exporter
+    - config_txt

@@ -1,0 +1,9 @@
+---
+- name: Reboot
+  become: true
+  shell: sleep 3 && shutdown -r now
+  async: 1
+  poll: 0
+
+- name: RebootWait
+  local_action: pause seconds=60

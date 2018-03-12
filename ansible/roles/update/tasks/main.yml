@@ -1,0 +1,22 @@
+---
+- name: Check APT Cache
+  stat: path=/var/cache/apt
+  register: apt_cache_stat
+  changed_when: false
+
+- name: Update APT Cache
+  become: true
+  apt:
+    update-cache: yes
+
+- name: Update APT Packages
+  become: true
+  apt:
+    name: "*"
+    state: latest
+
+- name: Install WiringPi
+  become: true
+  apt:
+    name: wiringpi
+    state: latest
