@@ -10,6 +10,6 @@ start with a Raspberry Pi to which you can SSH using your SSH key as the pi user
 
 Run `./deploy.sh hostname.local` where `hostname.local` is the hostname of the Pi device to which we should deploy.
 
-## Then what
+## Enjoy
 
-Well, more steps need to be added to the ansible role.
+At this point, [shairport-sync](https://github.com/mikebrady/shairport-sync) should be doing the hard work and your Pi should be discoverable by AirPlay-enabled devices.
