@@ -1,0 +1,13 @@
+---
+- name: Install shairport-sync
+  become: true
+  apt:
+    name: shairport-sync
+    state: latest
+
+- name: Configure shairport-sync
+  become: true
+  service:
+    name: shairport-sync
+    enabled: true
+    state: started
